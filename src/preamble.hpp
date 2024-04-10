@@ -10,6 +10,8 @@
 #include <string>
 #include <vector>
 
+#define nameof(x) #x
+
 /**
  * \brief 32 Bit Floating Point Number
  */

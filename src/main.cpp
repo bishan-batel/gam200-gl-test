@@ -1,5 +1,6 @@
 
 #include <format>
+#include <functional>
 #include <iostream>
 #include <string_view>
 
@@ -9,6 +10,9 @@
 #include <imgui/backends/imgui_impl_opengl3.h>
 #include <imgui/imgui.h>
 
+#include <dlfcn.h>
+
+#include "engine/Engine.hpp"
 #include "preamble.hpp"
 
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -21,11 +25,16 @@ template <typename... Args> void info(std::string_view fmt, Args &&...args) {
   std::cout << "[Info] ";
   std::cout << std::vformat(fmt, std::make_format_args(args...)) << std::endl;
 }
+
+template <typename... Args> void error(std::string_view fmt, Args &&...args) {
+  std::cerr << "[Error] ";
+  std::cerr << std::vformat(fmt, std::make_format_args(args...)) << std::endl;
+}
 } // namespace logger
 
 int main() {
   if (not glfwInit()) {
-    std::cerr << "Failed to initialise GLFW" << std::endl;
+    logger::error("Failed to initialise GLFW");
     return 1;
   }
   logger::info("GLFW Init");
@@ -52,7 +61,6 @@ int main() {
     std::cerr << "Failed to initialise GLFW" << std::endl;
   }
 
-
   glfwMakeContextCurrent(window);
   glfwSwapInterval(1);
 
@@ -67,8 +75,7 @@ int main() {
   ImGuiIO &io = ImGui::GetIO();
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-  io.Fonts->AddFontFromFileTTF("JetBrainsMonoNerdFontMono-Medium.ttf",
-                               24.f);
+  io.Fonts->AddFontFromFileTTF("JetBrainsMonoNerdFontMono-Medium.ttf", 24.f);
   io.FontGlobalScale = 1.5f;
   io.FontAllowUserScaling = true;
 
@@ -83,8 +90,32 @@ int main() {
   bool show_demo = false;
   i32 width, height;
 
+  void *plugin = dlopen("src/engine/libengine.so", RTLD_NOW);
+  if (not plugin) {
+    logger::error("Failed to load DLL: {}", dlerror());
+    return 1;
+  }
+
+  EngineConstructor constructor =
+      (EngineConstructor)dlsym(plugin, nameof(make_engine));
+
+  if (const auto error = dlerror()) {
+    logger::error("Failed to get constructor, {}", error);
+    return 1;
+  }
+  EngineProcess process = (EngineProcess)dlsym(plugin, nameof(engine_process));
+
+  if (const auto error = dlerror()) {
+    logger::error("Failed to get process, {}", error);
+    return 1;
+  }
+
+  Engine *engine = constructor();
+
   while (not glfwWindowShouldClose(window)) {
     glfwPollEvents();
+
+    process(*engine);
 
     // ImGUI Render
     ImGui_ImplOpenGL3_NewFrame();
@@ -92,6 +123,23 @@ int main() {
     ImGui::NewFrame();
 
     // ImGui::ShowDemoWindow(&show_demo);
+    ImGui::Begin("DLL Test");
+    if (ImGui::Button("Reload")) {
+      dlclose(plugin);
+      plugin = dlopen("src/engine/libengine.so", RTLD_NOW);
+      if (not plugin) {
+        logger::error("Failed to load DLL: {}", dlerror());
+        return 1;
+      }
+
+      process = (EngineProcess)dlsym(plugin, nameof(engine_process));
+
+      if (const auto error = dlerror()) {
+        logger::error("Failed to get process, {}", error);
+        return 1;
+      }
+    }
+    ImGui::End();
 
     ImGui::Render();
     glfwGetFramebufferSize(window, &width, &height);
@@ -102,6 +150,9 @@ int main() {
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     glfwSwapBuffers(window);
   }
+
+  delete engine;
+  dlclose(plugin);
 
   return 0;
 }

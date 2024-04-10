@@ -6,8 +6,14 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(gaming-gl VERSION 1.0)
 
-file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.hpp")
+# file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.hpp")
+set(SOURCE_FILES 
+  src/main.cpp
+  src/preamble.hpp
+)
 set(LIBS_DIR "${PROJECT_SOURCE_DIR}/libs")
+
+add_subdirectory(src/engine)
 
 # Executable
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src ${LIBS_DIR})
@@ -58,9 +64,11 @@ add_library(
   ${IMGUI_DIR}/imgui_tables.cpp
   ${IMGUI_DIR}/imgui_widgets.cpp)
 
+
 # Link Dependencies
 target_link_libraries(${PROJECT_NAME} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES}
                       imgui glfw)
+
 
 add_custom_command(
   TARGET ${PROJECT_NAME}
