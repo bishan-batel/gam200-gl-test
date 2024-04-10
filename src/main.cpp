@@ -3,11 +3,11 @@
 #include <iostream>
 #include <string_view>
 
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <imgui/backends/imgui_impl_glfw.h>
+#include <imgui/backends/imgui_impl_opengl3.h>
+#include <imgui/imgui.h>
 
 #include "preamble.hpp"
 
@@ -34,6 +34,16 @@ int main() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 
+  glfwWindowHint(GLFW_FLOATING, true);
+  glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, true);
+
+#if DEBUG
+  glfwWindowHintString(GLFW_X11_CLASS_NAME, "debug");
+  glfwWindowHintString(GLFW_X11_INSTANCE_NAME, "debug");
+  glfwWindowHint(GLFW_FOCUSED, true);
+  glfwWindowHint(GLFW_FOCUS_ON_SHOW, true);
+#endif
+
   logger::info("Attempting to create windows");
   GLFWwindow *const window =
       glfwCreateWindow(1000, 1000, "bruh", nullptr, nullptr);
@@ -41,6 +51,7 @@ int main() {
   if (not window) {
     std::cerr << "Failed to initialise GLFW" << std::endl;
   }
+
 
   glfwMakeContextCurrent(window);
   glfwSwapInterval(1);
@@ -54,9 +65,12 @@ int main() {
 
   logger::info("Setting config flags");
   ImGuiIO &io = ImGui::GetIO();
-  (void)io;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+  io.Fonts->AddFontFromFileTTF("JetBrainsMonoNerdFontMono-Medium.ttf",
+                               24.f);
+  io.FontGlobalScale = 1.5f;
+  io.FontAllowUserScaling = true;
 
   ImGui::StyleColorsDark();
 
@@ -77,7 +91,7 @@ int main() {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::ShowDemoWindow(&show_demo);
+    // ImGui::ShowDemoWindow(&show_demo);
 
     ImGui::Render();
     glfwGetFramebufferSize(window, &width, &height);
