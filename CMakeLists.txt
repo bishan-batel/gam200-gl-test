@@ -6,10 +6,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(gaming-gl VERSION 1.0)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/build/debug")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/build/debug")
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 
-set(SOURCE_FILES "src/main.cpp")
+file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.hpp")
 
 # Glad find_package(glad CONFIG REQUIRED) target_link_libraries(${PROJECT_NAME}
 # glad::glad)
@@ -34,8 +34,10 @@ include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends .. ${PROJECT_SOURCE_DIR} 
 add_executable(${PROJECT_NAME} 
     ${SOURCE_FILES}
     ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_demo.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
     ${IMGUI_DIR}/imgui_tables.cpp
     ${IMGUI_DIR}/imgui_widgets.cpp
 )

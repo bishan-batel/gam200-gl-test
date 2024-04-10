@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR="./build/"
+BUILD_DIR="Debug"
 PROJECT_NAME="gaming-gl"
 
 if [ ! -d $BUILD_DIR ]; then 

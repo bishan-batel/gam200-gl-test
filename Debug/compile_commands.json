@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/src/main.cpp.o -c /home/bishan_/code/gaming-gl/src/main.cpp",
+  "file": "/home/bishan_/code/gaming-gl/src/main.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/backends/imgui_impl_glfw.cpp.o -c /home/bishan_/code/gaming-gl/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/backends/imgui_impl_glfw.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/backends/imgui_impl_glfw.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/bishan_/code/gaming-gl/imgui/backends/imgui_impl_opengl3.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/backends/imgui_impl_opengl3.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/backends/imgui_impl_opengl3.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/imgui.cpp.o -c /home/bishan_/code/gaming-gl/imgui/imgui.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/imgui.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/imgui.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/imgui_demo.cpp.o -c /home/bishan_/code/gaming-gl/imgui/imgui_demo.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/imgui_demo.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/imgui_demo.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/imgui_draw.cpp.o -c /home/bishan_/code/gaming-gl/imgui/imgui_draw.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/imgui_draw.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/imgui_draw.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/imgui_tables.cpp.o -c /home/bishan_/code/gaming-gl/imgui/imgui_tables.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/imgui_tables.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/imgui_tables.cpp.o"
+},
+{
+  "directory": "/home/bishan_/code/gaming-gl/Debug",
+  "command": "/usr/bin/c++  -I/home/bishan_/code/gaming-gl/imgui -I/home/bishan_/code/gaming-gl/imgui/backends -I/home/bishan_/code/gaming-gl/.. -I/home/bishan_/code/gaming-gl -I/home/bishan_/code/gaming-gl/src -g -std=gnu++23 -o CMakeFiles/gaming-gl.dir/imgui/imgui_widgets.cpp.o -c /home/bishan_/code/gaming-gl/imgui/imgui_widgets.cpp",
+  "file": "/home/bishan_/code/gaming-gl/imgui/imgui_widgets.cpp",
+  "output": "CMakeFiles/gaming-gl.dir/imgui/imgui_widgets.cpp.o"
+}
+]

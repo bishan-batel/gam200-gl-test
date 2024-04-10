@@ -1,0 +1,3 @@
+/home/bishan_/code/gaming-gl/Debug/CMakeFiles/gaming-gl.dir
+/home/bishan_/code/gaming-gl/Debug/CMakeFiles/edit_cache.dir
+/home/bishan_/code/gaming-gl/Debug/CMakeFiles/rebuild_cache.dir
