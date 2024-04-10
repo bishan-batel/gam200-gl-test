@@ -57,7 +57,6 @@ int main() {
   (void)io;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-  io.FontGlobalScale = 2.f;
 
   ImGui::StyleColorsDark();
 

@@ -1,4 +1,6 @@
 /build/
+/Debug/
 /cmake-build-debug/
 /imgui/*
+/imgui.ini
 /.cache
