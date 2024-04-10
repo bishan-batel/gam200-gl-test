@@ -1,7 +1,8 @@
 /build/
 /Debug/
 /cmake-build-debug/
-/imgui/*
-/imgui.ini
+/libs/imgui/*
+/libs/crabpp/*
+imgui.ini
 /.cache
 /compile_commands.json

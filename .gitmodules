@@ -1,0 +1,6 @@
+[submodule "libs/imgui"]
+	path = libs/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "libs/crabpp"]
+	path = libs/crabpp
+	url = https://github.com/bishan-batel/crabpp
